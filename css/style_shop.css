@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+}
+
+.menu_bar {
+  width: 80%;
+  height: 60px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #8e0000;
+  text-align: right;
+}
+.menu {
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+}
+.menu_item {
+  display: inline-block;
+  width: 25%;
+  height: auto;
+}
+.menu_item a {
+  display: block;
+  padding: 21px 50px;
+  text-decoration: none;
+  font-style: italic;
+  color: white;
+ 
+}
+.menu_item a:hover {
+  background-color: yellow;
+  transition: 0.4s;
+  color: #8e0000;
+}
+
+.perfil_contenedor{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.perfil_contenedor--img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.perfil_contenedor--img img{
+  width: 100%;
+  height: 100%;
+}
+
+.menu_perfil {
+  position: relative;
+}
+.menu_perfil_contenedor {
+  position: absolute;
+  background-color: #8e0000;
+  list-style: none;
+  display: none;
+  width: 100%;
+}
+.menu_perfil:hover .menu_perfil_contenedor{
+  display: block;
+}
+.menu_perfil--item a {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  font-style: italic;
+  color: white;
+}
+.menu_perfil--item:hover {
+  background-color: yellow;
+  transition: 0.4s;
+  color: #8e0000;
+}
+
+.contenedor {
+  width: 100%;
+  margin-top: 100px;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.item_box {
+  width: 25%;
+  height: 40vh;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.item_box a {
+  width: 80%;
+  height: 90%;
+  margin: 0 auto;
+  display: block;
+}
+.item {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+}
+.item.wolverine {
+  background-image: url("../img/funko_wolverine.jpg");
+}
+.item.superman {
+  background-image: url("../img/funko_superman.jpg");
+}
+.item.batman {
+  background-image: url("../img/funko_batman.jpg");
+}
+.item.ironman {
+  background-image: url("../img/funko_ironman.jpg");
+}
+.item.capi {
+  background-image: url("../img/funko_capAmerica.jpg");
+}
+.item.venom {
+  background-image: url("../img/funko_venom.jpg");
+}
+
+.iframe_contenedor {
+  display: none;
+  width: 55%;
+  height: 80vh;
+  position: absolute;
+  left: calc(50% - 27.5%);
+  top: 10vh;
+}
+
+.iframe_contenedor.active {
+  display: block;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.btn_exit {
+  font-size: 2em;
+  text-align: end;
+  cursor: pointer;
+}
+
+footer {
+  width: 100%;
+  height: 30vh;
+  background-color: #8e0000;
+  text-align: center;
+}

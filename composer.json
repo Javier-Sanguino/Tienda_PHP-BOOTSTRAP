@@ -1,0 +1,21 @@
+{
+    "name": "js_creations/tienda_php",
+    "description": "Tienda en PHP y BOOTSTRAP",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "JsCreations\\TiendaPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "js creations",
+            "email": "fjse0505@gmail.com"
+        }
+    ],
+    "minimum-stability": "beta",
+    "require": {
+        "twbs/bootstrap": "5.1.0"
+    }
+}

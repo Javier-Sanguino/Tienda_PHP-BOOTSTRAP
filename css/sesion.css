@@ -1,0 +1,183 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+}
+
+.menu_bar {
+  width: 60%;
+  height: 60px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #8e0000;
+  text-align: right;
+}
+.menu {
+  list-style: none;
+  width: 100%;
+}
+.menu_item {
+  display: inline-block;
+}
+.menu_item a {
+  display: inline-block;
+  padding: 21px 40px;
+  margin: 0 10px;
+  text-decoration: none;
+  font-style: italic;
+  color: white;
+}
+.menu_item a:hover {
+  background-color: yellow;
+  transition: 0.4s;
+  color: #8e0000;
+}
+
+.sign_contenedor {
+  width: 40%;
+  border: 1px #8e0000 solid;
+  border-radius: 10px;
+  margin: 100px auto 200px;
+  text-align: center;
+  padding: 30px;
+}
+
+.sign_contenedor.inactive {
+  display: none;
+}
+
+.sign_btn {
+  width: 120px;
+  height: 40px;
+  padding: 10px;
+  margin: 0 30px;
+  background-color: #8e0000;
+  cursor: pointer;
+  border: none;
+  color: white;
+}
+.sign_btn:hover {
+  background-color: yellow;
+  color: #8e0000;
+  transition: 0.6s;
+}
+.sign_btn.sign-in {
+  font-size: 1.2em;
+  padding: 5px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #8e0000;
+  padding: 50px;
+}
+
+.newUser {
+  width: 40%;
+  height: auto;
+  margin: 100px auto 50px;
+  padding: 10px;
+  text-align: center;
+  border: 1px #8e0000 solid;
+  border-radius: 10px;
+  display: none;
+}
+
+.newUser.active {
+  display: block;
+}
+
+.form_item {
+  margin: 10px 0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.form_item label {
+  width: 30%;
+  padding: 10px;
+  text-align: end;
+}
+
+.form_item input {
+  width: 50%;
+  background: none;
+  border: none;
+  border-bottom: 1px #000 solid;
+  font-style: italic;
+  text-align: center;
+}
+
+.input_radio {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.input_radio .radio {
+  width: 10%;
+}
+
+.form_item select {
+  width: 50%;
+}
+
+.btn_guardar {
+  margin-top: 20px;
+  border: none;
+  background-color: #8e0000;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: white;
+  font-size: 1.2em;
+}
+.btn_guardar:hover {
+  background-color: yellow;
+  color: #8e0000;
+  transition: 0.6s;
+}
+
+.sign_in_contenedor {
+  width: 40%;
+  height: auto;
+  margin: 100px auto;
+  border: 1px #8e0000 solid;
+  border-radius: 10px;
+  padding-bottom: 20px;
+  display: none;
+}
+.sign_in_contenedor.active {
+  display: block;
+}
+
+.btn_back {
+  display: none;
+  margin: 20px 0 50px;
+  border: none;
+  background-color: #8e0000;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: white;
+  font-size: 1.2em;
+}
+.btn_back:hover {
+  background-color: yellow;
+  color: #8e0000;
+  transition: 0.6s;
+}
+
+.btn_back.active{
+  display: inline-block;
+}
+
+footer {
+  width: 100%;
+  height: 30vh;
+  background-color: #8e0000;
+  text-align: center;
+}
