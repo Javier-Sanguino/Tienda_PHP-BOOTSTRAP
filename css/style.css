@@ -3,7 +3,14 @@
   padding: 0;
   box-sizing: border-box;
 }
+#main_container{
+  padding: 0;
+  margin: 0;
+}
 
+.nav{
+  padding: 10px 0;
+}
 .menu_bar {
   width: 70%;
   height: 60px;
@@ -51,12 +58,25 @@
 }
 
 .title {
-  width: 35%;
-  margin-left: -30px;
   display: flex;
   align-items: flex-end;
-  font-size: 4em;
+  justify-content: flex-start;
   font-family: "Lobster", cursive;
+}
+.title h1{
+  font-size: 3em;
+  margin-left: -60px;
+}
+
+.title_coleccion{
+  text-align: center;
+}
+.colecciones{
+  height: 50vh;
+  border: 2px #000 solid;
+}
+.img-container img{
+  width: 100%;
 }
 
 .colecciones_contenedor {

@@ -5,38 +5,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/contacto.css">
+    <!-- <link rel="stylesheet" href="../css/contacto.css"> -->
+    <link rel="stylesheet" href="../vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
     <link rel="shortcut icon" href="../img/PopLogo.png">
     <title>Contacto</title>
 </head>
 
 <body>
     <main>
-        <nav class="menu_bar">
-            <ul class="menu">
-                <li class="menu_item"><a href="../index.html">Home</a></li>
-                <li class="menu_item"><a href="./compra.php">Shop</a></li>
-                <li class="menu_item"><a href="./conocenos.html">Con&oacute;cenos</a></li>
-                <li class="menu_item"><a href="./sesion.php">Iniciar Sesión</a></li>
+        <nav class="content-fluid bg-dark">
+            <ul class="nav justify-content-end">
+                <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="./compra.php" class="nav-link">Shop</a></li>
+                <li class="nav-item"><a href="./conocenos.html" class="nav-link">Con&oacute;cenos</a></li>
+                <li class="nav-item"><a href="./sesion.php" class="nav-link">Iniciar Sesión</a></li>
             </ul>
         </nav>
         <section class="formulario_contenedor">
             <h2>Contactanos</h2>
             <div class="formulario">
-                <form action="../php/guardar.php" method="POST">
-                    <label for="">Nombre</label>
-                    <input type="text" name="nombre">
+                <form action="../php/guardar.php" method="POST" class="needs-validation">
+                    <div class="form-group">
+                        <label for="">Nombre</label>
+                        <input type="text" name="nombre" required>
+                    </div>
                     <br>
-                    <label for="">Telefono</label>
-                    <input type="tel" name="phone">
+                    <div class="form-group">
+                        <label for="">Telefono</label>
+                        <input type="tel" name="phone">
+                    </div>
                     <br>
-                    <label for="">Correo</label>
-                    <input type="mail" name="mail">
+                    <div class="form-group">
+                        <label for="">Correo</label>
+                        <input type="mail" name="mail">
+                    </div>
                     <br>
-                    <label for="">Comentarios</label>
-                    <input type="text" name="coment">
+                    <div class="form-group">
+                        <label for="">Comentarios</label>
+                        <input type="text" name="coment">
+                    </div>
                     <br>
-                    <input type="submit" value="Send">
+                    <button type="submit" class="btn btn-primary" value="Send">Enviar</button>
                 </form>
             </div>
         </section>
@@ -49,7 +58,7 @@
         </section>
         <footer></footer>
     </main>
-
+    <script src="../vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
