@@ -12,12 +12,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/home.css">
     <title>Funko Store Cucuta</title>
 </head>
 
 <body>
     <main class="container-fluid" id="main_container">
-        <nav class="row">
+        <nav class="row bg-light">
             <ul class="col-sm-12 nav nav-pills justify-content-end">
                 <li class="nav-item"><a href="./links/compra.php" class="nav-link">Shop</a></li>
                 <li class="nav-item"><a href="./links/conocenos.html" class="nav-link">Con&oacute;cenos</a></li>
@@ -26,47 +27,47 @@
                 <li class="nav-item"><a href="./links/Add_funko.php" class="nav-link">Crear Funko</a></li>
             </ul>
         </nav>
-        <section class="row">
+        <section class="row home-logo">
             <div class="col-sm-8 img-container">
                 <img src="./img/Funko_Logo.png" alt="Funko logo" class="img-fluid">
             </div>
-            <div class="d-flex align-content-center col-sm-4">
+            <div class="d-flex align-items-end justify-items-start col-sm-4 titulo">
                 <h1 class="">Store C&uacute;cuta</h1>
             </div>
         </section>
-        <section class="row">
-            <div class="row">
-                <h2 class="col-sm-12 title_coleccion">-- Colecciones --</h2>
+        <section class="container-fluidcoleccion_contenedor" style="text-align: center;">
+            <div class="row d-flex justify-content-center coleccion_titulo">
+                <h2 class="col-sm-4 title_coleccion">-- Colecciones --</h2>
             </div>
-            <div class="row ">
-                <div class="col-sm-3 colecciones">
+            <div class="row d-flex justify-content-center justify-items-center">
+                <div class="col-sm-3 coleccion_box">
                     <div class="coleccion_collage col1" title="TV Shows"></div>
                     <div class="coleccion_title">
                         <h3>TV Shows</h3>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-3 coleccion_box">
                     <div class="coleccion_collage col2" title="Comics"></div>
                     <div class="coleccion_title">
                         <h3>Comics</h3>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-3 coleccion_box">
                     <div class="coleccion_collage col3" title="Movies"></div>
                     <div class="coleccion_title">
                         <h3>Movies</h3>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <button class="coleccion_boton">M&aacute;s<i class="fas fa-arrow-down"></i></button>
+            <div class="row d-flex justify-content-center coleccion_boton">
+                <div class="col-sm-1">
+                    <button class="coleccion_boton btn btn-primary">M&aacute;s<i class="fas fa-arrow-down"></i></button>
                 </div>
             </div>
 
         </section>
         <footer class="row bg-danger" style="height: 40vh;">
-            <div class="col-sm-12">
+            <div class="col-sm-12 d-flex justify-content-center align-items-center">
                 <p style="margin-bottom: 0;">Made with <i class="fas fa-heart"></i> by JS Creations</p>
             </div>
         </footer>
