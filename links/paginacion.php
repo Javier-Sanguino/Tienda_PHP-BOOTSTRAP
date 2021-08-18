@@ -10,12 +10,11 @@ $sql = "SELECT COUNT(id) FROM clientes";
 foreach ($conn->query($sql) as $fila) {
     $registros = $fila[0];
 }
-//echo $registros;
 
-echo "Limite 1: " . $_GET['limite1'];
-echo "<br>";
-echo "Limite 2: " . $_GET['limite2'];
-echo "<br>";
+// echo "Limite 1: " . $_GET['limite1'];
+// echo "<br>";
+// echo "Limite 2: " . $_GET['limite2'];
+// echo "<br>";
 
 $sql = "SELECT * FROM clientes LIMIT " . $_GET['limite1'] . ", " . $_GET['limite2'];
 foreach ($conn->query($sql) as $fila) {
@@ -24,9 +23,6 @@ foreach ($conn->query($sql) as $fila) {
     $apellidos[$count] = $fila[2];
     $count++;
 }
-
-// echo "URL: " . $sql;
-// echo "<br>";
 
 for ($i = 0; $i < $count; $i++) {
     echo $id[$i];
@@ -82,14 +78,41 @@ if (!isset($_SESSION['usuario'])) {
         <div>
             <ul class="pagination">
                 <?php
-                $limit1 = 0;
-                for ($i = 1; $i < $registros / 10; $i++) {
-                    echo "<li class='page-item'><a class='page-link' href='./paginacion.php?limite1=" . $limit1 . "&limite2=10'>" . $i . "</a></li>";
-                    $limit1 = ($i * 10) + 1;
-                    $previous = ($limit1) - 10;
+                $pag_actual = $_GET['limite1'];
+                if ($pag_actual == 0) {
+                    echo "<li class='page-item disabled'><a class='page-link' href='./paginacion.php?limite1=" . $pag_actual . "&limite2=10'><i class='fas fa-chevron-circle-left'></i></a></li>";
+                } else {
+                    $pag_actual -= 10;
+                    echo "<li class='page-item'><a class='page-link' href='./paginacion.php?limite1=" . $pag_actual . "&limite2=10'><i class='fas fa-chevron-circle-left'></i></a></li>";
                 }
-                echo "<li class='page-item'><a class='page-link' href='./paginacion.php?limite1=" . $limit1 . "&limite2=10'>" . $i . "</a></li>";
-                echo "<li class='page-item'><a class='page-link' href='./paginacion.php?limite1=" . $previous . "&limite2=10'>Previous</a></li>";
+                $item_actual = $_GET['limite1'] / 10 + 1;
+                $limit1 = 0;
+                for ($i = $item_actual; $i < $item_actual + 2; $i++) {
+                    $pag_actual = $_GET['limite1'];
+                    if ($limit1 == $pag_actual) {
+                        //$item_actual = $i;
+                        echo "<li class='page-item active'><a class='page-link' href='./paginacion.php?limite1=" . $limit1 . "&limite2=10'>" . $i . "</a></li>";
+                    } else {
+                        echo "<li class='page-item'><a class='page-link' href='./paginacion.php?limite1=" . $limit1 . "&limite2=10'>" . $i . "</a></li>";
+                    }
+                    $limit1 = ($i * 10);
+                }
+
+                $pag_actual = $_GET['limite1'];
+                if ($limit1 == $pag_actual) {
+                    $item_actual = $i;
+                    echo "<li class='page-item active'><a class='page-link' href='./paginacion.php?limite1=" . $limit1 . "&limite2=10'>" . $i . "</a></li>";
+                } else {
+                    echo "<li class='page-item'><a class='page-link' href='./paginacion.php?limite1=" . $limit1 . "&limite2=10'>" . $i . "</a></li>";
+                }
+                $pag_actual = $_GET['limite1'];
+                if ($pag_actual == $limit1) {
+                    echo "<li class='page-item disabled'><a class='page-link' href='./paginacion.php?limite1=" . $pag_actual . "&limite2=10'><i class='fas fa-chevron-circle-right'></i></a></li>";
+                } else {
+                    $pag_actual += 10;
+                    echo "<li class='page-item'><a class='page-link' href='./paginacion.php?limite1=" . $pag_actual . "&limite2=10'><i class='fas fa-chevron-circle-right'></i></a></li>";
+                }
+                echo "Numero Actual: " . $item_actual;
                 ?>
             </ul>
 

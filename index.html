@@ -13,6 +13,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>Funko Store Cucuta</title>
 </head>
 
@@ -61,9 +64,41 @@
             </div>
             <div class="row d-flex justify-content-center coleccion_boton">
                 <div class="col-sm-1">
-                    <button class="coleccion_boton btn btn-primary">M&aacute;s<i class="fas fa-arrow-down"></i></button>
+                    <button type="button" class="coleccion_boton btn btn-primary">M&aacute;s<i
+                            class="fas fa-arrow-down"></i></button>
                 </div>
+
             </div>
+<!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    Open modal
+  </button>
+  
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          Modal body..
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+
 
         </section>
         <footer class="row bg-danger" style="height: 40vh;">
@@ -73,6 +108,7 @@
         </footer>
     </main>
     <script src="./vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>
