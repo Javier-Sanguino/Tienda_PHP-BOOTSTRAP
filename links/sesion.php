@@ -125,6 +125,7 @@ function perfil_item()
     <button class="btn_close"><a href="../php/close_sesion.php">Cerrar sesión</a></button>
     <footer>
         <p>Made with <i class="fas fa-heart"></i> by JS Creations</p>
+        <button><a href="../php/admin.php">Admin</a></button>
     </footer>
 
     <script src="../JS/sesion.js"></script>

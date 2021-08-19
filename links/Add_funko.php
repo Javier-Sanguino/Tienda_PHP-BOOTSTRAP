@@ -43,6 +43,10 @@ foreach ($conn->query($sql) as $fila) {
                 <input type="text" name="price" placeholder="$ 10.000">
             </div>
             <div class="form_item">
+                <label for="">Cantidad:</label>
+                <input type="text" name="cantidad" placeholder="10 Und">
+            </div>
+            <div class="form_item">
                 <label for="">Foto:</label>
                 <input type="hidden" name="MAX_FILE_SIZE" value="900000" />
                 <input type="file" name="funko_img">

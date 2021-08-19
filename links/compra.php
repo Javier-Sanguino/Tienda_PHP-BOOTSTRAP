@@ -17,6 +17,7 @@ foreach ($conn->query($sql) as $fila) {
     $descripcion[$count] = $fila[2];
     $price[$count] = $fila[3];
     $imagen[$count] = $fila[4];
+    $inventario[$count] = $fila[5];
     $count++;
 }
 
@@ -61,22 +62,24 @@ if (!isset($_SESSION['usuario'])) {
             <form action="../php/ejecutar_compra.php" method="POST" name="form_item-selected" class="form_contenedor">
                 <?php
                 for ($i = 0; $i < $count; $i++) {
-                    echo "<div class='item'>";
-                    echo "<div class='item_img'>
+                    if ($inventario[$i] != 0) {
+                        echo "<div class='item'>";
+                        echo "<div class='item_img'>
                     <a href='./shop_links/" . $link[$i] . ".html' target='window' onclick='windowFunction()'>
                     <img src='" . $imagen[$i] . "' alt='" . $nombre[$i] . "'></div>
                     </a>";
-                    echo "<div class='item_description'>";
-                    echo "<h3>funko " . $nombre[$i] . "</h3>";
-                    echo "<p>" . $descripcion[$i] . "</p>";
-                    echo "<h4>$ " . $price[$i] . "</h4>";
-                    echo "</div>";
-                    echo "<div class='item_cant'>";
-                    echo "<p>Cantidad: </p>";
-                    echo "<input type='number' value='1' name='cant" . $i . "'>";
-                    echo "</div>";
-                    echo "<input type='checkbox' value='" . $id[$i] . "' name=" . $i . " class='item_selected'>";
-                    echo "</div>";
+                        echo "<div class='item_description'>";
+                        echo "<h3>funko " . $nombre[$i] . "</h3>";
+                        echo "<p>" . $descripcion[$i] . "</p>";
+                        echo "<h4>$ " . $price[$i] . "</h4>";
+                        echo "</div>";
+                        echo "<div class='item_cant'>";
+                        echo "<p>Cantidad: </p>";
+                        echo "<input type='number' value='1' name='cant" . $i . "'>";
+                        echo "</div>";
+                        echo "<input type='checkbox' value='" . $id[$i] . "' name=" . $i . " class='item_selected'>";
+                        echo "</div>";
+                    }
                 }
                 echo "<input type='hidden' name='cont' value='" . $i . "'>";
                 ?>
@@ -91,35 +94,36 @@ if (!isset($_SESSION['usuario'])) {
             </div>
             <iframe src="" frameborder="0" name="window"></iframe>
         </section>
-        <div>
+        <!-- <div>
+            <h5>Paginación</h5>
             <ul class="pagination">
             <?php
             $sql = "SELECT COUNT(id) FROM clientes";
             foreach ($conn->query($sql) as $fila) {
                 $registros = $fila[0];
             }
-                $limit1 = 0;
-                echo "<li class='page-item disabled'><a class='page-link' href='#'>Previous</a></li>";
-                for ($i = 1; $i < $registros / 10; $i++) {
-                    $limit2 = ($i * 10);
-                    echo "<li class='page-item'><a class='page-link' href='./paginacion.php?limite1=" . $limit1 . "&limite2=10'>" . $i . "</a></li>";
-                    $limit1 = ($i * 10) + 1;
-                }
-                $limit2 += 1;
-                //echo "<li class='page-item'><a class='page-link' href='./paginacion.php?1=10'>" . $limit2 . " " . $registros . "</a></li>";
+            $limit1 = 0;
+            echo "<li class='page-item disabled'><a class='page-link' href='#'>Previous</a></li>";
+            for ($i = 1; $i < $registros / 10; $i++) {
+                $limit2 = ($i * 10);
                 echo "<li class='page-item'><a class='page-link' href='./paginacion.php?limite1=" . $limit1 . "&limite2=10'>" . $i . "</a></li>";
+                $limit1 = ($i * 10) + 1;
+            }
+            $limit2 += 1;
+            //echo "<li class='page-item'><a class='page-link' href='./paginacion.php?1=10'>" . $limit2 . " " . $registros . "</a></li>";
+            echo "<li class='page-item'><a class='page-link' href='./paginacion.php?limite1=" . $limit1 . "&limite2=10'>" . $i . "</a></li>";
 
-                ?>
+            ?>
             </ul>
 
-        </div>
+        </div> -->
         <footer>
             <p>Made with <i class="fas fa-heart"></i> by JS Creations</p>
         </footer>
         <script src="../JS/shop.js"></script>
         <script src="../vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
     </body>
-    
+
 <?php
 
 }

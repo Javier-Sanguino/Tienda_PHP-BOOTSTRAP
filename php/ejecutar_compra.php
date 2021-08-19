@@ -84,6 +84,7 @@ session_start();
     ?>
         <h1>Elementos seleccionados</h1>
         <section class="item_contenedor">
+            <form action="../php/pagar.php" method="POST">
             <?php
             for ($i = 0; $i < $count; $i++) {
                 echo "<div class='item'>";
@@ -93,19 +94,27 @@ session_start();
                 //echo "<p>" . $descripcion[$i] . "</p>";
                 echo "</div>";
                 echo "<h4>Cantidad: <span class='item_cant'>" . $cantidad[$i] . "</span></h4>";
+                echo "<input type='hidden' name='cantidad".$i."' value='" . $cantidad[$i] . "'>";
                 echo "<h4>Precio: <span class='item_price'>$ " . $price . "</span></h4>";
                 echo "<div class='btn_exit'>";
                 echo "<a href='./eliminar_item.php?funko=" . $id[$i] . "'><i class='fas fa-times'></i></a>";
+                echo "<input type='hidden' name='id".$i."' value='" . $id[$i] . "'>";
                 echo "</div>";
                 echo "</div>";
             }
+            echo "<input type='hidden' name='contador' value='" . $count . "'>";
+            echo "<input type='hidden' name='valor' value='" . $total . "'>";
+            //echo "<input type='submit' name='submit' value='Pagar' class='btn_back'>";
+            echo "<button class='btn_back' type='submit' name='submit'>Pagar</button>";
 
             ?>
             <div class="total">
                 <h2>TOTAL: $<?php echo $total; ?></h2>
             </div>
             <button class="btn_back"><a href="../links/compra.php"><i class="fas fa-arrow-left"></i>Volver</a></button>
-            <button class="btn_back"><a href="../php/pagar.php"><i class="fas fa-arrow-left"></i>Pagar</a></button>
+            <!-- <button class="btn_back"><a href="../php/pagar.php?cantidad=<?php echo $count;?>&id"><i class="fas fa-arrow-left"></i>Pagar</a></button> -->
+            <!--  -->
+            </form>
         </section>
 </body>
 <?php

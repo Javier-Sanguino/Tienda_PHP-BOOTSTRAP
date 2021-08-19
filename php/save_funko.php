@@ -30,10 +30,11 @@ if ($uploadOk == 0) {
   }
 
 try {
-    $sql = "INSERT INTO funkos (nombre,	descripcion, price, imagen)
+    $sql = "INSERT INTO funkos (nombre,	descripcion, price, imagen, cantidad)
     VALUES ('" . $_POST["nombre"] . "'," .
         "'" . $_POST["descripcion"] . "'," .
         "'" . $_POST["price"] . "'," .
+        "'" . $_POST["cantidad"] . "'," .
         "'" . $target_file . "')";
     // use exec() because no results are returned
     $conn->exec($sql);
