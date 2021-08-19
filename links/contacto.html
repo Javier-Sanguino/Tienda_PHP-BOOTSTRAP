@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="../css/contacto.css"> -->
+    <link rel="stylesheet" href="../styles/contacto.css">
     <link rel="stylesheet" href="../vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
     <link rel="shortcut icon" href="../img/PopLogo.png">
     <title>Contacto</title>
@@ -13,7 +13,7 @@
 
 <body>
     <main>
-        <nav class="content-fluid bg-dark">
+        <nav class="content-fluid">
             <ul class="nav justify-content-end">
                 <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="./compra.php" class="nav-link">Shop</a></li>
@@ -22,9 +22,9 @@
             </ul>
         </nav>
         <section class="formulario_contenedor">
-            <h2>Contactanos</h2>
-            <div class="formulario conntent d-flex justify-content-center">
-                <form action="../php/guardar.php" method="POST" class="form-group Stacked ">
+            <h2 class="text-center my-5">Contactanos</h2>
+            <div class="formulario content d-flex justify-content-center mx-auto">
+                <form action="../php/guardar.php" method="POST" class="formulario">
                     <div class="form-group">
                         <label for="">Nombre</label>
                         <input type="text" name="nombre" required class="form-control">

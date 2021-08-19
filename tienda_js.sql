@@ -3,11 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
-<<<<<<< HEAD
 -- Tiempo de generación: 18-08-2021 a las 03:37:18
-=======
+
 -- Tiempo de generación: 18-08-2021 a las 14:33:39
->>>>>>> c2b6d158f96b1c41581e92094007a3ac6181e8fa
 -- Versión del servidor: 8.0.17
 -- Versión de PHP: 7.3.10
 
@@ -41,8 +39,7 @@ CREATE TABLE `carrito` (
 -- --------------------------------------------------------
 
 --
-<<<<<<< HEAD
-=======
+
 -- Estructura de tabla para la tabla `clientes`
 --
 
@@ -219,12 +216,10 @@ INSERT INTO `funkos` (`id`, `nombre`, `descripcion`, `price`, `imagen`) VALUES
 (5, 'Venom', 'Funko de Venom', 15.99, '../img/funko_venom.jpg'),
 (6, 'Iron Man', 'Funko de Iron Man', 15.99, '../img/funko_ironman.jpg'),
 (7, 'Wolverine 2', 'Funko de Wolverine', 15.99, '../img/funko_wolverine.jpg'),
-<<<<<<< HEAD
 (8, 'Wonder Woman', 'Funko Wonder Woman 1984', 15.99, '../img/funko_wonder-woman.jpeg'),
 (9, 'Daenerys Targaryen', 'Funko de Daenerys sobre dragon', 15.99, '../img/funko_daenerys.jpg');
-=======
+
 (8, 'Wonder Woman', 'Funko Wonder Woman 1984', 15.99, '../img/funko_wonder-woman.jpeg');
->>>>>>> c2b6d158f96b1c41581e92094007a3ac6181e8fa
 
 -- --------------------------------------------------------
 
@@ -251,12 +246,12 @@ CREATE TABLE `sesion` (
 --
 
 INSERT INTO `sesion` (`nombre`, `user`, `passw`, `dir`, `tel`, `sex`, `mail`, `fecha_nac`, `pasatiempo`, `ciudad`, `file`) VALUES
-<<<<<<< HEAD
+
 ('Javier Sanguino', 'javier', '12345', 'mz 1 casa 19', '3226816161', 'M', 'fjse0505@gmail.com', '1997-05-05', 'comer', 'Cucuta', '../img/up_img/funko_wolverine_1.jpg'),
 ('Sara Beltran', 'sara', '12345', 'mz 1 casa 19', '3126438329', 'F', 'saravabemo@gmail.com', '1997-12-21', 'Dormir', 'Medellin', '../img/up_img/funko_daenerys.jpg');
-=======
+
 ('Javier Sanguino', 'javier', '12345', 'mz 1 casa 19', '3226816161', 'M', 'fjse0505@gmail.com', '1997-05-05', 'comer', 'Cucuta', '../img/up_img/funko_wolverine_1.jpg');
->>>>>>> c2b6d158f96b1c41581e92094007a3ac6181e8fa
+
 
 --
 -- Índices para tablas volcadas
@@ -269,15 +264,13 @@ ALTER TABLE `carrito`
   ADD PRIMARY KEY (`usuario`,`id_funko`);
 
 --
-<<<<<<< HEAD
-=======
 -- Indices de la tabla `clientes`
 --
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id`);
 
 --
->>>>>>> c2b6d158f96b1c41581e92094007a3ac6181e8fa
+
 -- Indices de la tabla `funkos`
 --
 ALTER TABLE `funkos`
@@ -297,11 +290,9 @@ ALTER TABLE `sesion`
 -- AUTO_INCREMENT de la tabla `funkos`
 --
 ALTER TABLE `funkos`
-<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-=======
+
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
->>>>>>> c2b6d158f96b1c41581e92094007a3ac6181e8fa
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
