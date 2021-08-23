@@ -35,11 +35,10 @@ for ($i = 0; $i < $_POST['contador']; $i++) {
     echo $sql . "<br>" . $e->getMessage();
   }
   try {       //Se insertan en la tabla carrito los nuevos valores
-    $sql = "INSERT INTO compras (usuario, id_funko, cantidad,	valor)
+    $sql = "INSERT INTO compras (usuario, id_funko, cantidad)
     VALUES ('" . $usuario . "',
         '" . $_POST['id' . $i] . "'," .
-      "'" . $_POST['cantidad' . $i] . "'," .
-      "'" . $_POST['valor'] . "')";
+      "'" . $_POST['cantidad' . $i] . "')";
     // use exec() because no results are returned
     $conn->exec($sql);
     $mensaje = "Registro creado satisfactoriamente";
@@ -48,5 +47,6 @@ for ($i = 0; $i < $_POST['contador']; $i++) {
     echo $sql . "<br>" . $e->getMessage();
   }
 }
+echo $mensaje;
 
 header("Location: ../index.html");

@@ -23,7 +23,7 @@ foreach ($conn->query($sql) as $fila) {
 
 if (!isset($_SESSION['usuario'])) {
     echo "Por favor inicie sesion primero: ";
-    echo "<a href='../links/sesion.html'>Inicio sesion</a>";
+    echo "<a href='../links/sesion.php'>Inicio sesion</a>";
 } else {
 
 ?>
@@ -75,7 +75,7 @@ if (!isset($_SESSION['usuario'])) {
                         echo "</div>";
                         echo "<div class='item_cant'>";
                         echo "<p>Cantidad: </p>";
-                        echo "<input type='number' value='1' name='cant" . $i . "'>";
+                        echo "<input type='number' value='1' name='cant" . $i . "' max='".$inventario[$i]."'>";
                         echo "</div>";
                         echo "<input type='checkbox' value='" . $id[$i] . "' name=" . $i . " class='item_selected'>";
                         echo "</div>";
