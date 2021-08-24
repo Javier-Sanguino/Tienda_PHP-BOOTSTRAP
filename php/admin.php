@@ -12,27 +12,16 @@ include("./coneccion.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/ejecutar_compra.css">
-    <!-- <link rel="stylesheet" href="../vendor/twbs/bootstrap/dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="../vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
     <title>Administrador</title>
 </head>
 
-<body>
+<body class="bg-warning">
     <?php
     if (isset($_SESSION['usuario'])) {
 
         class admin
         {
-            public $nombre;
-
-            function __construct($name)
-            {
-                $this->nombre = $name;
-            }
-
-            function saludar()
-            {
-                echo "Hola " . $this->nombre;
-            }
             function modificar_inventario($conx, $id, $cantidad)
             {
                 try {
@@ -63,22 +52,10 @@ include("./coneccion.php");
                     $count++;
                 }
                 for ($i = 0; $i < $count; $i++) {
-                    // echo "ID: " . $id[$i];
-                    // echo "<br>";
-                    // echo "funko " . $nombre[$i];
-                    // echo "<br>";
-                    // echo "$ " . $price[$i];
-                    // echo "<br>";
-                    // echo "Cantidad: " . $inventario[$i];
-                    // echo "<br>";
-                    // echo "<br>";
-                    // echo "<br>";
-
                     echo "<div class='item'>";
                     echo "<div class='item_img'><img src='" . $imagen[$i] . "' alt='" . $nombre[$i] . "'></div>";
                     echo "<div class='item_description'>";
-                    echo "<h3>funko " . $nombre[$i] . "</h3>";
-                    //echo "<p>" . $descripcion[$i] . "</p>";
+                    echo "<h3>Funko " . $nombre[$i] . "</h3>";
                     echo "</div>";
                     echo "<h4>Cantidad: <span class='item_cant'>" . $inventario[$i] . "</span></h4>";
                     echo "<input type='hidden' name='cantidad" . $i . "' value='" . $inventario[$i] . "'>";
@@ -89,7 +66,7 @@ include("./coneccion.php");
                     echo "</div>";
                 }
             }
-            function compras($conx)
+            function consulta_compras_completa($conx)
             {
                 $count = 0;
                 $countx = 0;
@@ -101,7 +78,7 @@ include("./coneccion.php");
                     $count++;
                 }
                 for ($i = 0; $i < count($nombre); $i++) {
-                    $sql = "SELECT * FROM compras WHERE cantidad > 2 AND usuario = '" . $nombre[$i] . "'";
+                    $sql = "SELECT * FROM compras WHERE usuario = '" . $nombre[$i] . "'";
                     foreach ($conx->query($sql) as $fila) {
                         $funko[$nombre[$i]][$countx] = $fila[2];
                         $cantidad[$nombre[$i]][$countx] = $fila[3];
@@ -117,7 +94,6 @@ include("./coneccion.php");
                     echo "<th>Funkos</th>";
                     echo "<th>Cantidades</th>";
                     echo "</tr>";
-
                     for ($j = 0; $j < $countx; $j++) {
                         if ($funko[$nombre[$i]][$j] != '') {
                             echo "<tr>";
@@ -138,7 +114,83 @@ include("./coneccion.php");
                 echo "<br>";
                 echo "<br>";
                 echo  "Total: ";
-                echo  "<strong>".$total_abs."</strong>";
+                echo  "<strong>" . $total_abs . "</strong>";
+                //echo $sql;
+            }
+            function consulta_compras_usuario($conx, $url)
+            {
+                $total = 0;
+                echo "<table>";
+                echo "<tr>";
+                echo "<th>Funkos</th>";
+                echo "<th>Cantidad</th>";
+                echo "</tr>";
+                foreach ($conx->query($url) as $fila) {
+                    echo "<tr>";
+                    echo  "<td>" . $fila[2] . "</td>";
+                    echo  "<td>" . $fila[3] . "</td>";
+                    echo "</tr>";
+                    $total += 15.99 * $fila[3];
+                }
+                echo "<tr>";
+                echo "<th>Total:</th>";
+                echo "<th>" . $total . "</th>";
+                echo "</tr>";
+                echo "</table>";
+            }
+            function consulta_compras_funko($conx, $url)
+            {
+                $total = 0;
+                echo "<table>";
+                echo "<tr>";
+                echo "<th>Cliente</th>";
+                echo "<th>Cantidad</th>";
+                echo "</tr>";
+                foreach ($conx->query($url) as $fila) {
+                    echo "<tr>";
+                    echo  "<td>" . $fila[1] . "</td>";
+                    echo  "<td>" . $fila[3] . "</td>";
+                    echo "</tr>";
+                    $total += 15.99 * $fila[3];
+                }
+                echo "<tr>";
+                echo "<th>Total:</th>";
+                echo "<th>" . $total . "</th>";
+                echo "</tr>";
+                echo "</table>";
+            }
+            function menu()
+            {
+    ?>
+                <ul class="nav nav-pills bg-warning">
+                    <li class="nav-item">
+                        <form action="./admin.php" method="get">
+                            <input type="text" name="user" placeholder="Nombre">
+                            <input type="hidden" name="opc" value="compras">
+                            <input type="hidden" name="op" value="1">
+                            <input type="submit" value="Consultar" name="submit" class="btn btn-primary btn-sm">
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <form action="./admin.php" method="get">
+                            <input type="text" name="user" placeholder="Código">
+                            <input type="hidden" name="opc" value="compras">
+                            <input type="hidden" name="op" value="2">
+                            <input type="submit" value="Consultar" name="submit" class="btn btn-primary btn-sm">
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <form action="./admin.php" method="get">
+                            <label for="">Fecha</label>
+                            <input type="date" name="fecha">
+                            <input type="hidden" name="opc" value="compras">
+                            <input type="hidden" name="op" value="4">
+                            <input type="submit" value="Consultar" name="submit" class="btn btn-primary btn-sm">
+                        </form>
+                    </li>
+                    <li class="nav-item"><a href="./admin.php?opc=compras&op=4" class="nav-link">Todos</a></li>
+                </ul>
+    <?php
             }
         }
         $admin1 = new admin($_SESSION['usuario']);
@@ -151,7 +203,25 @@ include("./coneccion.php");
                 break;
 
             case 'compras':
-                $admin1->compras($conn);
+                $admin1->menu();
+                //$admin1->compras($conn, 1, 2);
+                switch ($_GET['op']) {
+                    case 1:
+                        $sql = "SELECT * FROM compras WHERE usuario = '" . $_GET['user'] . "'";
+                        $admin1->consulta_compras_usuario($conn, $sql);
+                        break;
+                        case 2:
+                            $sql = "SELECT * FROM compras WHERE id_funko = '" . $_GET['user'] . "'";
+                        $admin1->consulta_compras_funko($conn, $sql);
+                            break;
+                    case 4:
+                        $admin1->consulta_compras_completa($conn);
+                        break;
+
+                    default:
+                        # code...
+                        break;
+                }
                 break;
             default:
                 # code...
