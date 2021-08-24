@@ -26,9 +26,14 @@ include("../php/admin.php");
 
 <body>
     <main class="row bg-warning">
-        <section class="bg-secondary col-sm-3 d-flex flex-column pt-3">
+        <section class="bg-light col-sm-3 d-flex flex-column pt-3">
+            <div class="logo-box row">
+                <div class="col-sm-3"></div>
+                <a href="../index.html" class="col-sm-6"><img src="../img/Funko_Logo.png" alt="" class="img-fluid"></a>
+                <div class="col-sm-3"></div>
+            </div>
             <div class="title">
-                <h1>Menu de opciones</h1>
+                <h4>Menu</h4>
             </div>
             <section class="modificar_inv">
                 <h3>Modificar cantidades</h3>
@@ -47,33 +52,17 @@ include("../php/admin.php");
                     </form>
                 </div>
             </section>
-            <section class="p-1">
-                <a href="../php/admin.php?opc=inventario" class="d-flex align-items-center enlace justify-content-between btn btn-dark px-4" target="window">
+            <section class="my-1 p-1 btn-box">
+                <a href="../php/admin.php?opc=inventario" id="btn_inventario" class="btn btn-outline-secondary p-4" target="window">
                     <div><i class="fas fa-border-all"></i></div>
                     <span>inventario</span>
                 </a>
             </section>
-            <section class=" p-1">
-                <a href="../php/admin.php?opc=compras" class="d-flex align-items-center enlace justify-content-between btn btn-dark px-4" target="window">
+            <section class="my-1 p-1 btn-box">
+                <a href="../php/admin.php?opc=compras" id="btn_compras" class="btn btn-outline-secondary p-4" target="window">
                     <div><i class="fas fa-cart-arrow-down"></i></div>
                     <span>Ver Compras</span>
                 </a>
-            </section>
-            <section class=" p-1">
-                <a href="../php/admin.php?opc=compras" class="d-flex align-items-center enlace justify-content-between btn btn-dark px-4" target="window">
-                    <div><i class="fas fa-cart-arrow-down"></i></div>
-                    <span>Ver Compras</span>
-                </a>
-                <div class="dropdown">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                        Dropdown button
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Link 1</a>
-                        <a class="dropdown-item" href="#">Link 2</a>
-                        <a class="dropdown-item" href="#">Link 3</a>
-                    </div>
-                </div>
             </section>
             <a href="../index.html" class="btn btn-primary" id="btn_back">Volver</a>
         </section>
@@ -81,7 +70,7 @@ include("../php/admin.php");
             <iframe src="../php/admin.php" frameborder="0" name="window"></iframe>
         </section>
     </main>
-    
+    <script src="../JS/admin.js"></script>
 </body>
 
 </html>

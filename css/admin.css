@@ -9,6 +9,12 @@ section{
     position: relative;
 }
 
+.btn-box a{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 section > section{
     height: 10%;
 }
@@ -29,4 +35,32 @@ section > section{
 
 section > iframe {
     width: 100%;
+}
+/* .inventario.clickeado{
+    font-weight: bold;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+}
+.clickeado{
+    font-weight: bold;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+} */
+
+.inventario_container{
+    width: 100%;
+    height: auto;
+    background-color: violet;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.inventario_item_box{
+    width: 30%;
+    height: 400px;
+    margin: 15px 10px !important;
+    background-color: green;
+}
+
+.item_img{
+    height: 300px;
 }

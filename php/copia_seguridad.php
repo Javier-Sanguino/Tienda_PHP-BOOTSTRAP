@@ -73,3 +73,7 @@ if ($id_temporal == $_POST[$i]) {       //Se valida si el Id existe en la tabla
     $funko_agregados[$count_funko] = $_POST[$i];        //Se agrega el Id al arreglo
     $cantidad[$count_funko] = $_POST['cant' . $i];      // Se agrega al arreglo de cantidades la cantidad digitada unicamente
 }
+
+
+date_default_timezone_set('America/Bogota');
+$fecha=date('y-m-d');
