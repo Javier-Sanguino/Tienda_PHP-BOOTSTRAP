@@ -186,6 +186,20 @@ iframe {
   cursor: pointer;
 }
 
+.btn_carrito_box{
+  position: fixed;
+  top: 70px;
+  right: 10px;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  background-color: rgb(218, 230, 245);
+  padding: 5px;
+  border-radius: 50%;
+  font-size: 2em;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+}
+
 footer {
   width: 100%;
   height: 30vh;

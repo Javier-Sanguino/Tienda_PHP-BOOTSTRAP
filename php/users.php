@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $mensaje;
 include("./coneccion.php");
 
@@ -46,6 +48,9 @@ try {
   // use exec() because no results are returned
   $conn->exec($sql);
   $mensaje = "Registro creado satisfactoriamente";
+  $file = fopen("../archivos/Usuarios.txt", "a");
+  fwrite($file, PHP_EOL . "Se creo un nuevo usuario con el nombre: " . $_POST["nombre"] . ". Por el usuario: " . $_SESSION['usuario'] . PHP_EOL);
+  fclose($file);
 } catch (PDOException $e) {
   $mensaje = "Error";
   echo $sql . "<br>" . $e->getMessage();

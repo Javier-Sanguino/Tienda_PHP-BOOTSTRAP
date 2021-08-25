@@ -3,8 +3,6 @@ session_start();
 
 include("../php/coneccion.php");
 
-$fila = array();
-$foto;
 $sql = "SELECT * FROM sesion where user= '" . $_SESSION['usuario'] . "'";
 
 foreach ($conn->query($sql) as $fila) {

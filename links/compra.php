@@ -57,7 +57,7 @@ if (!isset($_SESSION['usuario'])) {
                 </li>
             </ul>
         </nav>
-        <h1>Bienvenido a compras <?php echo $_SESSION['nombre']; ?></h1>
+        <h1 class="pt-5 my-4">Bienvenido a compras <?php echo $_SESSION['nombre']; ?></h1>
         <section class="item_contenedor">
             <form action="../php/ejecutar_compra.php" method="POST" name="form_item-selected" class="form_contenedor">
                 <?php
@@ -94,6 +94,9 @@ if (!isset($_SESSION['usuario'])) {
             </div>
             <iframe src="" frameborder="0" name="window"></iframe>
         </section>
+        <div class="btn_carrito_box">
+            <a href="../php/ejecutar_compra.php"><i class="fas fa-shopping-cart"></i></a>
+        </div>
         <!-- <div>
             <h5>Paginación</h5>
             <ul class="pagination">

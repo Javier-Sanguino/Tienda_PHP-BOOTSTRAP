@@ -64,6 +64,16 @@ include("../php/admin.php");
                     <span>Ver Compras</span>
                 </a>
             </section>
+            <section class="my-1 p-1 btn-box dropdown">
+                <a href="../php/admin.php?opc=historial" id="btn_compras" class="btn btn-outline-secondary p-4 dropdown-toggle" data-toggle="dropdown">
+                    <div><i class="fas fa-history"></i></i></div>
+                    <span>Ver historial</span>
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="../php/admin.php?opc=historial&op=1" target="window">Funkos</a>
+                    <a class="dropdown-item" href="../php/admin.php?opc=historial&op=2" target="window">Usuarios</a>
+                </div>
+            </section>
             <a href="../index.html" class="btn btn-primary" id="btn_back">Volver</a>
         </section>
         <section class="col-sm-9 d-flex">

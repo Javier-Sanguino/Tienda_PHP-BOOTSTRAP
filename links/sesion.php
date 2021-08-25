@@ -122,6 +122,16 @@ function perfil_item()
             <input type="submit" value="Guardar" class="btn_guardar">
         </form>
     </section>
+    <section class="sign_in_contenedor active">
+        <h2>Eliminar usuarios</h2>
+        <form action="../php/borrar_usuario.php" method="POST" name="form_signIn">
+            <div class="form_item">
+                <label for="">Usuario:</label>
+                <input type="text" name="user" placeholder="Javier_Sanguino_97">
+            </div>
+            <input type="submit" value="Borrar" class="btn_guardar">
+        </form>
+    </section>
     <button class="btn_back" onclick="back()" id="btn_back">Volver</button>
     <button class="btn_close"><a href="../php/close_sesion.php">Cerrar sesión</a></button>
     <footer>

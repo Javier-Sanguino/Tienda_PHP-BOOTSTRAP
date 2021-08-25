@@ -55,8 +55,8 @@ include("./coneccion.php");
                 echo "<div class='inventario_container d-flex'>";
                 for ($i = 0; $i < $count; $i++) {
                     echo "<div class='inventario_item_box'>";
-                    echo "<div class='item_img'><img src='" . $imagen[25] . "' alt='" . $nombre[$i] . "' class='img-fluid rounded'></div>";
-                    echo "<h3>Funko " . $nombre[$i] . "</h3>";
+                    echo "<div class='item_img'><img src='" . $imagen[$i] . "' alt='" . $nombre[$i] . "' class='img-fluid rounded'></div>";
+                    echo "<h6>" . $nombre[$i] . "</h6>";
                     echo "<h4>Cantidad: <span class='item_cant'>" . $inventario[$i] . "</span></h4>";
                     echo "<input type='hidden' name='cantidad" . $i . "' value='" . $inventario[$i] . "'>";
                     echo "<a href='./eliminar_item.php?funko=" . $id[$i] . "'><i class='fas fa-times'></i></a>";
@@ -170,6 +170,15 @@ include("./coneccion.php");
                 </ul>
     <?php
             }
+            function ver_historial($archivo)
+            {
+                $file = fopen('../archivos/' . $archivo, 'r');
+                while (!feof($file)) {
+                    $linea = fgets($file);
+                    echo $linea . "<br />";
+                }
+                fclose($file);
+            }
         }
         $admin1 = new admin($_SESSION['usuario']);
         switch ($_GET['opc']) {
@@ -199,6 +208,13 @@ include("./coneccion.php");
                     //echo "Aqui va una consulta general";
                     $sql = "1";
                     $admin1->consulta($conn, $sql);
+                }
+                break;
+            case 'historial':
+                if ($_GET['op'] == 1) {
+                    $admin1->ver_historial('historial_funkos.txt');
+                } elseif ($_GET['op'] == 2) {
+                    $admin1->ver_historial('Usuarios.txt');
                 }
                 break;
 

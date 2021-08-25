@@ -1,5 +1,5 @@
 <?php
-$mensaje;
+session_start();
 include("./coneccion.php");
 
 $target_dir = "../img/";
@@ -40,6 +40,9 @@ try {
   // use exec() because no results are returned
   $conn->exec($sql);
   $mensaje = "Registro creado satisfactoriamente";
+  $file = fopen("../archivos/historial_funkos.txt", "a");
+  fwrite($file, PHP_EOL . "Se creo un nuevo funko con el nombre: " . $_POST["nombre"] . ". Por el usuario: " . $_SESSION['usuario'] . PHP_EOL);
+  fclose($file);
 } catch (PDOException $e) {
   $mensaje = "Error";
   echo $sql . "<br>" . $e->getMessage();
