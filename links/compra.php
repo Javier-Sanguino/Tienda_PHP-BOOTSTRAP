@@ -39,11 +39,23 @@ if (!isset($_SESSION['usuario'])) {
         <link rel="stylesheet" href="../css/compra.css">
         <link rel="stylesheet" href="../vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../fonts/css/all.css">
+        <link rel="stylesheet" href="../styles/compra.css">
         <title>Compras</title>
     </head>
 
     <body>
-        <nav class="menu_bar">
+        <nav class="navbar navbar-expand-sm bg-light p-0 d-flex flex-row flex-row-reverse">
+            <a class="navbar-brand" href="#">
+                <img src="<?php echo $foto ?>" alt="Foto perfil" style="width:40px;" class="">
+            </a>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="./links/conocenos.html" class="nav-link">Con&oacute;cenos</a></li>
+                <li class="nav-item"><a href="./links/contacto.html" class="nav-link">Contacto</a></li>
+                <li class="nav-item"><a href="./links/Add_funko.php" class="nav-link">Crear Funko</a></li>
+            </ul>
+        </nav>
+        <!-- <nav class="menu_bar">
             <ul class="menu">
                 <li class="menu_item"><a href="../index.html">Home</a></li>
                 <li class="menu_item"><a href="./conocenos.html">Con&oacute;cenos</a></li>
@@ -56,7 +68,7 @@ if (!isset($_SESSION['usuario'])) {
                     </ul>
                 </li>
             </ul>
-        </nav>
+        </nav> -->
         <h1 class="pt-5 my-4">Bienvenido a compras <?php echo $_SESSION['nombre']; ?></h1>
         <section class="item_contenedor">
             <form action="../php/ejecutar_compra.php" method="POST" name="form_item-selected" class="form_contenedor">
@@ -66,7 +78,7 @@ if (!isset($_SESSION['usuario'])) {
                         echo "<div class='item'>";
                         echo "<div class='item_img'>
                     <a href='./shop_links/" . $link[$i] . ".html' target='window' onclick='windowFunction()'>
-                    <img src='" . $imagen[$i] . "' alt='" . $nombre[$i] . "'></div>
+                    <img src='" . $imagen[$i] . "' alt='" . $nombre[$i] . "' class='img-fluid'></div>
                     </a>";
                         echo "<div class='item_description'>";
                         echo "<h3>funko " . $nombre[$i] . "</h3>";
@@ -75,7 +87,7 @@ if (!isset($_SESSION['usuario'])) {
                         echo "</div>";
                         echo "<div class='item_cant'>";
                         echo "<p>Cantidad: </p>";
-                        echo "<input type='number' value='1' name='cant" . $i . "' max='".$inventario[$i]."'>";
+                        echo "<input type='number' value='1' name='cant" . $i . "' max='" . $inventario[$i] . "'>";
                         echo "</div>";
                         echo "<input type='checkbox' value='" . $id[$i] . "' name=" . $i . " class='item_selected'>";
                         echo "</div>";

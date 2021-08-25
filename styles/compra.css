@@ -1,0 +1,13 @@
+nav{
+    margin-bottom: 30px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+}
+
+.nav-item:hover{
+    background-color: blue;
+    transition: .3s;
+}
+
+.nav-item:hover .nav-link{
+    color: white;
+}
