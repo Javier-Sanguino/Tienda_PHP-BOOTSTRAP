@@ -20,6 +20,7 @@ function perfil_item()
     <link rel="stylesheet" href="../css/sesion.css">
     <link rel="stylesheet" href="../fonts/css/all.css">
     <link rel="shortcut icon" href="../img/PopLogo.png">
+    <link rel="stylesheet" href="../vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
     <title>Inicio de sesi&oacute;n</title>
 </head>
 

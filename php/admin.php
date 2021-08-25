@@ -148,18 +148,18 @@ include("./coneccion.php");
             {
     ?>
                 <ul class="nav nav-pills bg-warning">
-                    <form action="./admin.php" method="get" class="nav">
-                        <li class="nav-item">
+                    <form action="./admin.php" method="get" class="nav form-inline">
+                        <li class="nav-item form-group">
                             <label for="">Nombre:</label>
-                            <input type="text" name="usuario" placeholder="Usuario1">
+                            <input type="text" name="usuario" placeholder="Usuario1" class="form-control">
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item form-group">
                             <label for="">Id funko:</label>
-                            <input type="text" name="id_funko" placeholder="111">
+                            <input type="text" name="id_funko" placeholder="111" class="form-control">
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item form-group">
                             <label for="">Fecha</label>
-                            <input type="date" name="fecha">
+                            <input type="date" name="fecha" class="form-control">
                             <input type="hidden" name="opc" value="compras">
 
                         </li>
