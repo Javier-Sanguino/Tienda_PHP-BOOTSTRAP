@@ -13,7 +13,6 @@ include("../php/admin.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../img/PopLogo.png" type="image/x-icon">
     <link rel="stylesheet" href="../vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/admin.css">
     <link rel="stylesheet" href="../fonts/css/all.min.css">
@@ -35,23 +34,6 @@ include("../php/admin.php");
             <div class="title">
                 <h4>Menu</h4>
             </div>
-            <section class="modificar_inv">
-                <h3>Modificar cantidades</h3>
-                <div>
-                    <form action="../php/admin.php" method="post">
-                        <div>
-                            <label for="">ID Funko:</label>
-                            <input type="text" name="id_funko">
-                        </div>
-                        <div>
-                            <label for="">Cantidad:</label>
-                            <input type="text" name="cantidad">
-                        </div>
-                        <input type="hidden" name="opc" value="modificar">
-                        <input type="submit" name="submit" value="Modificar" class="btn btn-outline-primary">
-                    </form>
-                </div>
-            </section>
             <section class="my-1 p-1 btn-box">
                 <a href="../php/admin.php?opc=inventario" id="btn_inventario" class="btn btn-outline-secondary p-4" target="window">
                     <div><i class="fas fa-border-all"></i></div>

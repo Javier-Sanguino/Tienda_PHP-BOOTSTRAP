@@ -46,6 +46,7 @@
   margin: 100px 20px 200px;
   display: flex;
   height: auto;
+  justify-content: center;
 }
 
 .logo_box {

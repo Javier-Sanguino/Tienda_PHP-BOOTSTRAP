@@ -9,6 +9,10 @@ nav{
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
 }
 
+.navbar{
+    padding: 0 ;
+}
+
 .nav-item:hover{
     background-color: blue;
     transition: .3s;
@@ -34,6 +38,7 @@ nav{
 .coleccion_box{
     height: 40vh;
     margin: 0 10px;
+    box-shadow: 2px 2px 10px rgba(255, 193, 7, 1);
 }
 
 .coleccion_boton{

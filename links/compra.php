@@ -44,7 +44,7 @@ if (!isset($_SESSION['usuario'])) {
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-sm bg-light p-0 d-flex flex-row flex-row-reverse">
+        <nav class="navbar navbar-expand-sm bg-light p-0 d-flex justify-content-between">
             <a class="navbar-brand" href="#">
                 <img src="<?php echo $foto ?>" alt="Foto perfil" style="width:40px;" class="">
             </a>
@@ -108,6 +108,7 @@ if (!isset($_SESSION['usuario'])) {
         </section>
         <div class="btn_carrito_box">
             <a href="../php/ejecutar_compra.php"><i class="fas fa-shopping-cart"></i></a>
+
         </div>
         <!-- <div>
             <h5>Paginación</h5>

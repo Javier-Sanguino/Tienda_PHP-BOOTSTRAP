@@ -101,6 +101,14 @@ function perfil_item()
                 </select>
             </div>
             <div class="form_item">
+                <label for="">Tipo de Permiso:</label>
+                <div class="input_radio">
+                    <input type="radio" name="pasatiempo" value="Dormir" class="radio">Editor
+                    <input type="radio" name="pasatiempo" value="comer" class="radio">Admin
+                    <input type="radio" name="pasatiempo" value="descansar" class="radio">Descansar
+                </div>
+            </div>
+            <div class="form_item">
                 <label for="">Foto:</label>
                 <input type="hidden" name="MAX_FILE_SIZE" value="900000" />
                 <input type="file" name="file">
@@ -133,10 +141,10 @@ function perfil_item()
         </form>
     </section>
     <button class="btn_back" onclick="back()" id="btn_back">Volver</button>
-    <button class="btn_close"><a href="../php/close_sesion.php">Cerrar sesión</a></button>
+    <a href="../php/close_sesion.php" class="btn btn-danger"><i class="fas fa-sign-out-alt" style="padding-right: 5px;"></i>Cerrar sesión</a>
     <footer>
         <p>Made with <i class="fas fa-heart"></i> by JS Creations</p>
-        <button><a href="./administrador.php">Admin</a></button>
+        <a href="./administrador.php" class="btn btn-dark">Admin</a>
     </footer>
 
     <script src="../JS/sesion.js"></script>

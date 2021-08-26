@@ -7,15 +7,16 @@ include("./coneccion.php");
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
+<!-- <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <!-- <link rel="stylesheet" href="../css/ejecutar_compra.css"> -->
     <link rel="stylesheet" href="../vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/admin.css">
-    <title>Administrador</title>
-</head>
+    <link rel="shortcut icon" href="../img/PopLogo.png" type="image/x-icon">
+    <!-- <title>Administrador</title>
+</head> -->
 
 <body class="bg-warning">
     <?php
@@ -30,13 +31,11 @@ include("./coneccion.php");
                     // use exec() because no results are returned
                     $conx->exec($sql);
                     $mensaje = "Exito";
-                    echo $mensaje;
+                    // echo $mensaje;
                 } catch (PDOException $e) {
                     $mensaje = "Error";
                     echo $sql . "<br>" . $e->getMessage();
                 }
-                header("Location: ../links/administrador.php");
-                return $mensaje;
             }
 
             function ver_inventario($conx)
@@ -54,12 +53,12 @@ include("./coneccion.php");
                 }
                 echo "<div class='inventario_container d-flex'>";
                 for ($i = 0; $i < $count; $i++) {
-                    echo "<div class='inventario_item_box'>";
+                    echo "<div class='inventario_item_box p-2'>";
                     echo "<div class='item_img'><img src='" . $imagen[$i] . "' alt='" . $nombre[$i] . "' class='img-fluid rounded'></div>";
-                    echo "<h6>" . $nombre[$i] . "</h6>";
+                    echo "<h6 class='py-2'>" . $nombre[$i] . "</h6>";
+                    echo "<h6 class='pt-1'>ID: " . $id[$i] . "</h6>";
                     echo "<h4>Cantidad: <span class='item_cant'>" . $inventario[$i] . "</span></h4>";
                     echo "<input type='hidden' name='cantidad" . $i . "' value='" . $inventario[$i] . "'>";
-                    echo "<a href='./eliminar_item.php?funko=" . $id[$i] . "'><i class='fas fa-times'></i></a>";
                     echo "<input type='hidden' name='id" . $i . "' value='" . $id[$i] . "'>";
                     echo "</div>";
                 }
@@ -148,18 +147,18 @@ include("./coneccion.php");
             {
     ?>
                 <ul class="nav nav-pills bg-warning">
-                    <form action="./admin.php" method="get" class="nav form-inline">
-                        <li class="nav-item form-group">
+                    <form action="./admin.php" method="get" class="nav form-inline d-flex align-items-center">
+                        <li class="nav-item form-group d-flex align-items-center mx-2">
                             <label for="">Nombre:</label>
-                            <input type="text" name="usuario" placeholder="Usuario1" class="form-control">
+                            <input type="text" name="usuario" placeholder="Usuario1" class="form-control mx-2">
                         </li>
-                        <li class="nav-item form-group">
+                        <li class="nav-item form-group d-flex align-items-center mx-2">
                             <label for="">Id funko:</label>
-                            <input type="text" name="id_funko" placeholder="111" class="form-control">
+                            <input type="text" name="id_funko" placeholder="111" class="form-control mx-2">
                         </li>
-                        <li class="nav-item form-group">
+                        <li class="nav-item form-group d-flex align-items-center mx-2">
                             <label for="">Fecha</label>
-                            <input type="date" name="fecha" class="form-control">
+                            <input type="date" name="fecha" class="form-control mx-2">
                             <input type="hidden" name="opc" value="compras">
 
                         </li>
@@ -168,7 +167,33 @@ include("./coneccion.php");
                         </li>
                     </form>
                 </ul>
+                <?php
+            }
+            function menu_inventario($usuario)
+            {
+                if ($usuario != 'javier') {
+                    echo "Usuario no Admin";
+                } else {
+
+                ?>
+                    <ul class="nav nav-pills bg-warning">
+                        <form action="./admin.php" method="get" class="nav form-inline d-flex align-items-center">
+                            <li class="nav-item form-group d-flex align-items-center mx-2">
+                                <label for="">Id funko:</label>
+                                <input type="text" name="id_funko" placeholder="ID #" class="form-control mx-2">
+                            </li>
+                            <li class="nav-item form-group d-flex align-items-center mx-2">
+                                <label for="">Cantidad:</label>
+                                <input type='number' placeholder="0 - 1" name="cantidad" class="form-control mx-2">
+                            </li>
+                            <li class="nav-item">
+                                <input type="hidden" name="opc" value="modificar">
+                                <input type="submit" value="Modificar" name="submit" class="btn btn-primary btn-sm">
+                            </li>
+                        </form>
+                    </ul>
     <?php
+                }
             }
             function ver_historial($archivo)
             {
@@ -183,10 +208,13 @@ include("./coneccion.php");
         $admin1 = new admin($_SESSION['usuario']);
         switch ($_GET['opc']) {
             case 'modificar':
-                $admin1->modificar_inventario($conn, $_POST['id_funko'], $_POST['cantidad']);
+                $admin1->menu_inventario($_SESSION['usuario']);
+                $admin1->modificar_inventario($conn, $_GET['id_funko'], $_GET['cantidad']);
+                $admin1->ver_inventario($conn);
                 break;
 
             case 'inventario':
+                $admin1->menu_inventario($_SESSION['usuario']);
                 $admin1->ver_inventario($conn);
                 break;
 

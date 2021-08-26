@@ -9,3 +9,7 @@ Se ELIMINO el usuario con el nombre de usuario: pepe. Por el usuario: javier
 Se creo un nuevo usuario con el nombre: juan. Por el usuario: javier
 
 Se ELIMINO el usuario con el nombre de usuario: juan. Por el usuario: javier
+
+Se creo un nuevo usuario con el nombre: . Por el usuario: javier
+
+Se ELIMINO el usuario con el nombre de usuario: juan. Por el usuario: javierEl día 21-08-26
