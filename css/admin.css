@@ -4,6 +4,13 @@
     box-sizing: 0;
 }
 
+.form_item{
+    text-align: left;
+}
+
+
+
+
 section{
     height: 100vh;
     position: relative;

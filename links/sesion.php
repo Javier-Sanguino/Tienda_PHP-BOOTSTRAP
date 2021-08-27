@@ -101,14 +101,6 @@ function perfil_item()
                 </select>
             </div>
             <div class="form_item">
-                <label for="">Tipo de Permiso:</label>
-                <div class="input_radio">
-                    <input type="radio" name="pasatiempo" value="Dormir" class="radio">Editor
-                    <input type="radio" name="pasatiempo" value="comer" class="radio">Admin
-                    <input type="radio" name="pasatiempo" value="descansar" class="radio">Descansar
-                </div>
-            </div>
-            <div class="form_item">
                 <label for="">Foto:</label>
                 <input type="hidden" name="MAX_FILE_SIZE" value="900000" />
                 <input type="file" name="file">

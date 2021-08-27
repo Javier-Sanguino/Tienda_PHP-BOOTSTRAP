@@ -23,11 +23,6 @@ include("coneccion.php");
 
     <?php
 
-    $nombre;
-    $usuario;
-    $contrasena;
-    $fila = array();
-
     $sql = "SELECT * FROM sesion where user='" . $_POST['user'] . "'";
 
     foreach ($conn->query($sql) as $fila) {

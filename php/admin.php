@@ -11,11 +11,11 @@ include("./coneccion.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <!-- <link rel="stylesheet" href="../css/ejecutar_compra.css"> -->
-    <link rel="stylesheet" href="../vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/admin.css">
-    <link rel="shortcut icon" href="../img/PopLogo.png" type="image/x-icon">
-    <!-- <title>Administrador</title>
+<!-- <link rel="stylesheet" href="../css/ejecutar_compra.css"> -->
+<link rel="stylesheet" href="../vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/admin.css">
+<link rel="shortcut icon" href="../img/PopLogo.png" type="image/x-icon">
+<!-- <title>Administrador</title>
 </head> -->
 
 <body class="bg-warning">
@@ -159,10 +159,9 @@ include("./coneccion.php");
                         <li class="nav-item form-group d-flex align-items-center mx-2">
                             <label for="">Fecha</label>
                             <input type="date" name="fecha" class="form-control mx-2">
-                            <input type="hidden" name="opc" value="compras">
-
                         </li>
                         <li class="nav-item">
+                            <input type="hidden" name="opc" value="compras">
                             <input type="submit" value="Consultar" name="submit" class="btn btn-primary btn-sm">
                         </li>
                     </form>
@@ -192,9 +191,64 @@ include("./coneccion.php");
                             </li>
                         </form>
                     </ul>
-    <?php
+                <?php
                 }
             }
+            function usuarios($conx)
+            {
+                try {
+                    $sql = "INSERT INTO administradores (usuario, psw, permiso)
+                    VALUES ('" . $_GET["usuario"] . "'," .
+                        "'" . $_GET["psw"] . "'," .
+                        "'" . $_GET["permiso"] . "')";
+                    $conx->exec($sql);
+                    $mensaje = "Registro creado satisfactoriamente";
+                    date_default_timezone_set('America/Bogota');
+                    $fecha = date('y-m-d');
+                    $file = fopen("../archivos/Usuarios.txt", "a");
+                    fwrite($file, PHP_EOL . "Se creo un nuevo Administrador con nombre de usuario: "
+                        . $_GET["usuario"] . ". Por el usuario: "
+                        . $_SESSION['usuario'] . ". El día "
+                        . $fecha . PHP_EOL);
+                    fclose($file);
+                    //echo $mensaje;
+                } catch (PDOException $e) {
+                    $mensaje = "Error";
+                    echo $sql . "<br>" . $e->getMessage();
+                }
+
+                $conx = null;
+            }
+            function menu_usuarios()
+            {
+                ?>
+                <ul class="nav nav-pills bg-warning">
+                    <form action="./admin.php" method="get" class="nav form-inline d-flex align-items-center">
+                        <li class="nav-item form-group d-flex align-items-center mx-2">
+                            <label for="">Usuario:</label>
+                            <input type="text" name="usuario" placeholder="Usuario1" class="form-control mx-2">
+                        </li>
+                        <li class="nav-item form-group d-flex align-items-center mx-2">
+                            <label for="">Password:</label>
+                            <input type="password" name="psw" placeholder="111" class="form-control mx-2">
+                        </li>
+                        <li class="nav-item form-group d-flex align-items-center mx-2">
+                            <input type="radio" id="permiso1" name="permiso" value="1">
+                            <label for="html">Administrador</label><br>
+                            <input type="radio" id="permiso1" name="permiso" value="2">
+                            <label for="css">Consultor</label><br>
+                            <input type="radio" id="permiso3" name="permiso" value="3">
+                            <label for="javascript">Auxiliar</label>
+                        </li>
+                        <li class="nav-item">
+                            <input type="hidden" name="opc" value="usuarios">
+                            <input type="submit" value="Guardar" name="submit" class="btn btn-primary btn-sm">
+                        </li>
+                    </form>
+                </ul>
+    <?php
+            }
+
             function ver_historial($archivo)
             {
                 $file = fopen('../archivos/' . $archivo, 'r');
@@ -237,6 +291,10 @@ include("./coneccion.php");
                     $sql = "1";
                     $admin1->consulta($conn, $sql);
                 }
+                break;
+            case 'usuarios':
+                $admin1->menu_usuarios();
+                $admin1->usuarios($conn);
                 break;
             case 'historial':
                 if ($_GET['op'] == 1) {

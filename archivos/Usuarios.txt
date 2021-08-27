@@ -13,3 +13,13 @@ Se ELIMINO el usuario con el nombre de usuario: juan. Por el usuario: javier
 Se creo un nuevo usuario con el nombre: . Por el usuario: javier
 
 Se ELIMINO el usuario con el nombre de usuario: juan. Por el usuario: javierEl día 21-08-26
+
+Se creo un nuevo Administrador con nombre de usuario: . Por el usuario: javier. El día 21-08-27
+
+Se creo un nuevo Administrador con nombre de usuario: master. Por el usuario: javier. El día 21-08-27
+
+Se creo un nuevo Administrador con nombre de usuario: . Por el usuario: javier. El día 21-08-27
+
+Se creo un nuevo Administrador con nombre de usuario: . Por el usuario: javier. El día 21-08-27
+
+Se creo un nuevo Administrador con nombre de usuario: . Por el usuario: javier. El día 21-08-27
