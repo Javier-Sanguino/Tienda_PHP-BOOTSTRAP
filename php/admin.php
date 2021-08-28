@@ -196,27 +196,28 @@ include("./coneccion.php");
             }
             function usuarios($conx)
             {
-                try {
-                    $sql = "INSERT INTO administradores (usuario, psw, permiso)
+                if ($_GET['usuario'] != '') {
+                    try {
+                        $sql = "INSERT INTO administradores (usuario, psw, permiso)
                     VALUES ('" . $_GET["usuario"] . "'," .
-                        "'" . $_GET["psw"] . "'," .
-                        "'" . $_GET["permiso"] . "')";
-                    $conx->exec($sql);
-                    $mensaje = "Registro creado satisfactoriamente";
-                    date_default_timezone_set('America/Bogota');
-                    $fecha = date('y-m-d');
-                    $file = fopen("../archivos/Usuarios.txt", "a");
-                    fwrite($file, PHP_EOL . "Se creo un nuevo Administrador con nombre de usuario: "
-                        . $_GET["usuario"] . ". Por el usuario: "
-                        . $_SESSION['usuario'] . ". El día "
-                        . $fecha . PHP_EOL);
-                    fclose($file);
-                    //echo $mensaje;
-                } catch (PDOException $e) {
-                    $mensaje = "Error";
-                    echo $sql . "<br>" . $e->getMessage();
+                            "'" . $_GET["psw"] . "'," .
+                            "'" . $_GET["permiso"] . "')";
+                        $conx->exec($sql);
+                        $mensaje = "Registro creado satisfactoriamente";
+                        date_default_timezone_set('America/Bogota');
+                        $fecha = date('y-m-d');
+                        $file = fopen("../archivos/Usuarios.txt", "a");
+                        fwrite($file, PHP_EOL . "Se creo un nuevo Administrador con nombre de usuario: "
+                            . $_GET["usuario"] . ". Por el usuario: "
+                            . $_SESSION['usuario'] . ". El día "
+                            . $fecha . PHP_EOL);
+                        fclose($file);
+                        //echo $mensaje;
+                    } catch (PDOException $e) {
+                        $mensaje = "Error";
+                        echo $sql . "<br>" . $e->getMessage();
+                    }
                 }
-
                 $conx = null;
             }
             function menu_usuarios()

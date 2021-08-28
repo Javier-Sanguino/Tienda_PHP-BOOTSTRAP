@@ -1,43 +1,51 @@
-*{
-    margin: 0 !important;
-    padding: 0;
-    box-sizing: 0;
+* {
+  margin: 0 !important;
+  padding: 0;
+  box-sizing: 0;
 }
 
-.form_item{
-    text-align: left;
+.form_item {
+  text-align: left;
 }
 
-
-
-
-section{
-    height: 100vh;
-    position: relative;
+.alert-box {
+  position: fixed !important;
+  top: 10px;
+  z-index: 2;
+  left: calc(50% - 200px);
+}
+.close{
+  border: none;
+  padding: 5px;
 }
 
-.btn-box a{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+section {
+  height: 100vh;
+  position: relative;
 }
 
-section > section{
-    height: 10%;
+.btn-box a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-#btn_back{
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
+section > section {
+  height: 10%;
 }
 
-.enlace{
-    height: 100%;
+#btn_back {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+}
+
+.enlace {
+  height: 100%;
 }
 
 section > iframe {
-    width: 100%;
+  width: 100%;
 }
 /* .inventario.clickeado{
     font-weight: bold;
@@ -48,30 +56,30 @@ section > iframe {
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
 } */
 
-.inventario_container{
-    width: 100%;
-    height: auto;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
+.inventario_container {
+  width: 100%;
+  height: auto;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.inventario_item_box{
-    width: 17%;
-    min-width: 200px;
-    height: auto;
-    margin: 15px 10px !important;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
-    overflow: hidden;
+.inventario_item_box {
+  width: 17%;
+  min-width: 200px;
+  height: auto;
+  margin: 15px 10px !important;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.item_img{
-    width: 100%;
-    height: 250px;
+.item_img {
+  width: 100%;
+  height: 250px;
 }
 
-.item_img img{
-    /* height: 100%; */
-    width: 100%;
+.item_img img {
+  /* height: 100%; */
+  width: 100%;
 }

@@ -30,6 +30,30 @@ include("../php/admin.php");
 
     class administrador
     {
+        function menu_login()
+        {
+    ?>
+            <section class="row login-box" id="login-box">
+                <div class="col-sm-4"></div>
+                <section class="sign_in_contenedor col-sm-4 my-5 text-center" id="signIn">
+                    <h2 class="display-4 py-3">Iniciar Sesion</h2>
+                    <form action="./administrador.php" method="post" name="form_signIn" autocomplete="on">
+                        <div class="form_item form-group my-2">
+                            <label for="">Usuario:</label>
+                            <input type="text" name="user" placeholder="Javier_Sanguino_97" class="form-control" required>
+                        </div>
+                        <div class="form_item form-group">
+                            <label for="">Contraseña:</label>
+                            <input type="password" name="passw" placeholder="WD06yln#GibB" class="form-control" required>
+                        </div>
+                        <input type="hidden" name="sesion" value="1">
+                        <input type="submit" value="Validar" class="btn btn-danger m-3" onclick="sesion()">
+                    </form>
+                </section>
+                <div class="col-sm-4"></div>
+            </section>
+        <?php
+        }
 
         function sesion($conx)
         {
@@ -46,49 +70,24 @@ include("../php/admin.php");
             if ($_POST['user'] == $usuario && $_POST['passw'] == $contrasena) {
                 $mensaje = true;
                 //echo "Exito";
-    ?>
-                <div class="alert alert-success">
-                    <strong>Success!</strong> Indicates a successful or positive action.
-                </div>
-            <?php
             } else {
                 $mensaje = false;
-            ?>
-                <div class="alert alert-danger">
-                    <strong>Success!</strong> Indicates a successful or positive action.
-                </div>
-        <?php
             }
+            return $mensaje;
         }
     }
 
     $admin1 = new administrador();
-    if ($_POST['sesion'] == '') {
-        ?>
-        <section class="row login-box" id="login-box">
-            <div class="col-sm-4"></div>
-            <section class="sign_in_contenedor col-sm-4 my-5 text-center" id="signIn">
-                <h2 class="display-4 py-3">Iniciar Sesion</h2>
-                <form action="./administrador.php" method="post" name="form_signIn" autocomplete="on">
-                    <div class="form_item form-group my-2">
-                        <label for="">Usuario:</label>
-                        <input type="text" name="user" placeholder="Javier_Sanguino_97" class="form-control" required>
-                    </div>
-                    <div class="form_item form-group">
-                        <label for="">Contraseña:</label>
-                        <input type="password" name="passw" placeholder="WD06yln#GibB" class="form-control" required>
-                    </div>
-                    <input type="hidden" name="sesion" value="1">
-                    <input type="submit" value="Validar" class="btn btn-danger m-3" onclick="sesion()">
-                </form>
-            </section>
-            <div class="col-sm-4"></div>
-        </section>
-    <?php
-        $admin1->sesion($conn);
-    } elseif($admin1->sesion($conn)) {
-    ?>
 
+    if ($_POST['sesion'] == '') {
+        $admin1->menu_login();
+    } elseif ($admin1->sesion($conn)) {
+
+        ?>
+        <div class="alert alert-success alert-dismissible alert-box">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Success!</strong> Indicates a successful or positive action.
+        </div>
         <main class="row bg-warning main" id="main-container">
             <?php
             //var_dump($admin1->sesion($conn));
@@ -138,6 +137,14 @@ include("../php/admin.php");
         </main>
         <script src="../JS/admin.js"></script>
 
+    <?php
+    } elseif (!$admin1->sesion($conn)) {
+        $admin1->menu_login();
+    ?>
+        <div class="alert alert-danger alert-dismissible alert-box">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Success!</strong> Indicates a successful or positive action.
+        </div>
     <?php
     }
     ?>
