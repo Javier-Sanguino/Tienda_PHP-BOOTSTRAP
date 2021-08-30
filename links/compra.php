@@ -87,7 +87,7 @@ if (!isset($_SESSION['usuario'])) {
                         echo "</div>";
                         echo "<div class='item_cant'>";
                         echo "<p>Cantidad: </p>";
-                        echo "<input type='number' value='1' name='cant" . $i . "' max='" . $inventario[$i] . "'>";
+                        echo "<input type='number' value='1' name='cant" . $i . "' max='" . $inventario[$i] . "' min='0'>";
                         echo "</div>";
                         echo "<input type='checkbox' value='" . $id[$i] . "' name=" . $i . " class='item_selected'>";
                         echo "</div>";

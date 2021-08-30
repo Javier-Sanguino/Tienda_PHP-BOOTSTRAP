@@ -5,7 +5,6 @@ session_start();
 include('../php/coneccion.php');
 include("../php/admin.php");
 
-
 ?>
 
 <!DOCTYPE html>
@@ -59,39 +58,38 @@ include("../php/admin.php");
         {
 
             $mensaje = false;
-            $sql = "SELECT * FROM administradores where usuario = '" . $_POST['user'] . "'";
+            if ($_POST['user'] != '') {
+                $sql = "SELECT * FROM administradores where usuario = '" . $_POST['user'] . "'";
 
-            foreach ($conx->query($sql) as $fila) {
-                $usuario = $fila[1];
-                $contrasena = $fila[2];
-                $permiso = $fila[3];
-            }
+                foreach ($conx->query($sql) as $fila) {
+                    $usuario = $fila[1];
+                    $contrasena = $fila[2];
+                    $_SESSION['permiso'] = $fila[3];
+                }
 
-            if ($_POST['user'] == $usuario && $_POST['passw'] == $contrasena) {
-                $mensaje = true;
-                //echo "Exito";
-            } else {
-                $mensaje = false;
+                if ($_POST['user'] == $usuario && $_POST['passw'] == $contrasena) {
+                    $mensaje = true;
+                    $_SESSION['admin'] = $usuario;
+                    //echo "Exito";
+                } else {
+                    $mensaje = false;
+                }
             }
             return $mensaje;
         }
     }
 
     $admin1 = new administrador();
-
-    if ($_POST['sesion'] == '') {
+    if ($_POST['user'] == '') {
         $admin1->menu_login();
     } elseif ($admin1->sesion($conn)) {
-
+        $permiso = $_SESSION['permiso'];
         ?>
         <div class="alert alert-success alert-dismissible alert-box">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <strong>Success!</strong> Indicates a successful or positive action.
         </div>
         <main class="row bg-warning main" id="main-container">
-            <?php
-            //var_dump($admin1->sesion($conn));
-            ?>
             <section class="bg-light col-sm-3 d-flex flex-column pt-3">
                 <div class="logo-box row">
                     <div class="col-sm-3"></div>
@@ -101,34 +99,51 @@ include("../php/admin.php");
                 <div class="title">
                     <h4>Menu</h4>
                 </div>
+
                 <section class="my-1 p-1 btn-box">
-                    <a href="../php/admin.php?opc=inventario" id="btn_inventario" class="btn btn-outline-secondary p-4" target="window">
+                    <a href="../php/admin.php?opc=inventario" id="btn_inventario" class="btn btn-outline-dark p-4" target="window">
                         <div><i class="fas fa-border-all"></i></div>
                         <span>inventario</span>
                     </a>
                 </section>
-                <section class="my-1 p-1 btn-box">
-                    <a href="../php/admin.php?opc=compras" id="btn_compras" class="btn btn-outline-secondary p-4" target="window">
-                        <div><i class="fas fa-cart-arrow-down"></i></div>
-                        <span>Ver Compras</span>
-                    </a>
-                </section>
-                <section class="my-1 p-1 btn-box">
-                    <a href="../php/admin.php?opc=usuarios" id="btn_usuarios" class="btn btn-outline-secondary p-4" target="window">
-                        <div><i class="fas fa-user-plus"></i></div>
-                        <span>Crear Ususarios</span>
-                    </a>
-                </section>
-                <section class="my-1 p-1 btn-box dropdown">
-                    <a href="../php/admin.php?opc=historial" id="btn_historial" class="btn btn-outline-secondary p-4 dropdown-toggle" data-toggle="dropdown">
-                        <div><i class="fas fa-history"></i></i></div>
-                        <span>Ver historial</span>
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="../php/admin.php?opc=historial&op=1" target="window">Funkos</a>
-                        <a class="dropdown-item" href="../php/admin.php?opc=historial&op=2" target="window">Usuarios</a>
-                    </div>
-                </section>
+                <?php
+                if ($permiso < 3) {
+                ?>
+                    <section class="my-1 p-1 btn-box">
+
+                        <a href="../php/admin.php?opc=compras" id="btn_compras" class="btn btn-outline-secondary p-4" target="window">
+                            <div><i class="fas fa-cart-arrow-down"></i></div>
+                            <span>Ver Compras</span>
+                        </a>
+                    </section>
+                <?php
+                }
+
+                if ($permiso == 1) {
+                ?>
+                    <section class="my-1 p-1 btn-box">
+                        <a href="../php/admin.php?opc=usuarios" id="btn_usuarios" class="btn btn-outline-secondary p-4" target="window">
+                            <div><i class="fas fa-user-plus"></i></div>
+                            <span>Crear Ususarios</span>
+                        </a>
+                    </section>
+                <?php
+                }
+                if ($permiso == 1) {
+                ?>
+                    <section class="my-1 p-1 btn-box dropdown">
+                        <a href="../php/admin.php?opc=historial" id="btn_historial" class="btn btn-outline-secondary p-4 dropdown-toggle" data-toggle="dropdown">
+                            <div><i class="fas fa-history"></i></i></div>
+                            <span>Ver historial</span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="../php/admin.php?opc=historial&op=1" target="window">Funkos</a>
+                            <a class="dropdown-item" href="../php/admin.php?opc=historial&op=2" target="window">Usuarios</a>
+                        </div>
+                    </section>
+                <?php
+                }
+                ?>
                 <a href="../index.html" class="btn btn-primary" id="btn_back">Volver</a>
             </section>
             <section class="col-sm-9 d-flex">
