@@ -25,3 +25,5 @@ Se creo un nuevo Administrador con nombre de usuario: usuario1. Por el usuario: 
 Se ELIMINO el usuario con el nombre de usuario: usuario1. Por el usuario: El día 21-08-30
 
 Se creo un nuevo Administrador con nombre de usuario: pepe. Por el usuario: master. El día 21-08-30
+
+Se ELIMINO el usuario con el nombre de usuario: . Por el usuario: javierEl día 21-09-01

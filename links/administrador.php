@@ -33,10 +33,10 @@ include("../php/admin.php");
         {
     ?>
             <section class="row login-box" id="login-box">
-                <div class="col-sm-4"></div>
-                <section class="sign_in_contenedor col-sm-4 my-5 text-center" id="signIn">
+                <!-- <div class="col-sm-4"></div> -->
+                <section class="sign_in_contenedor col-sm-12 my-5 text-center d-flex flex-column align-items-center" id="signIn">
                     <h2 class="display-4 py-3">Iniciar Sesion</h2>
-                    <form action="./administrador.php" method="post" name="form_signIn" autocomplete="on">
+                    <form action="./administrador.php" method="post" name="form_signIn" autocomplete="on" class="col-sm-6">
                         <div class="form_item form-group my-2">
                             <label for="">Usuario:</label>
                             <input type="text" name="user" placeholder="Javier_Sanguino_97" class="form-control" required>
@@ -46,10 +46,10 @@ include("../php/admin.php");
                             <input type="password" name="passw" placeholder="WD06yln#GibB" class="form-control" required>
                         </div>
                         <input type="hidden" name="sesion" value="1">
-                        <input type="submit" value="Validar" class="btn btn-danger m-3" onclick="sesion()">
+                        <input type="submit" value="Ingresar" class="btn btn-danger m-3" onclick="sesion()">
                     </form>
                 </section>
-                <div class="col-sm-4"></div>
+                <!-- <div class="col-sm-4"></div> -->
             </section>
         <?php
         }
