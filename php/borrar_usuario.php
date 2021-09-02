@@ -21,5 +21,6 @@ try {
 } catch (PDOException $e) {
   echo $sql . "<br>" . $e->getMessage();
 }
+//prueba
 
 header("Location: ../index.html");
