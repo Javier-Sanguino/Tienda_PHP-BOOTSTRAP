@@ -62,57 +62,57 @@ include("./coneccion.php");
             }
             echo "</div>";
         }
-        function consulta_compras_completa($conx)
-        {
-            $count = 0;
-            $countx = 0;
-            $total = 0;
-            $total_abs = 0;
-            $sql = "SELECT DISTINCT usuario FROM compras";
-            foreach ($conx->query($sql) as $fila) {
-                $nombre[$count] = $fila[0];
-                $count++;
-            }
-            for ($i = 0; $i < count($nombre); $i++) {
-                $sql = "SELECT * FROM compras WHERE usuario = '" . $nombre[$i] . "'";
-                foreach ($conx->query($sql) as $fila) {
-                    $funko[$nombre[$i]][$countx] = $fila[2];
-                    $cantidad[$nombre[$i]][$countx] = $fila[3];
-                    $countx++;
-                }
-            }
-            echo "<table>";
-            for ($i = 0; $i < count($nombre); $i++) {
-                echo "<tr>";
-                echo "<th>Cliente: " . $nombre[$i] . "</th>";
-                echo "</tr>";
-                echo "<tr>";
-                echo "<th>Funkos</th>";
-                echo "<th>Cantidades</th>";
-                echo "</tr>";
-                for ($j = 0; $j < $countx; $j++) {
-                    if ($funko[$nombre[$i]][$j] != '') {
-                        echo "<tr>";
-                        echo  "<td>" . $funko[$nombre[$i]][$j] . "</td>";
-                        echo  "<td>" . $cantidad[$nombre[$i]][$j] . "</td>";
-                        echo "</tr>";
-                        $total += 15.99 * $cantidad[$nombre[$i]][$j];
-                    }
-                }
-                $total_abs += $total;
-                echo "<tr>";
-                echo  "<td>Total:</td>";
-                echo  "<td>" . $total . "</td>";
-                echo "</tr>";
-            }
-            echo "</table>";
-            echo "<br>";
-            echo "<br>";
-            echo "<br>";
-            echo  "Total: ";
-            echo  "<strong>" . $total_abs . "</strong>";
-            //echo $sql;
-        }
+        // function consulta_compras_completa($conx)
+        // {
+        //     $count = 0;
+        //     $countx = 0;
+        //     $total = 0;
+        //     $total_abs = 0;
+        //     $sql = "SELECT DISTINCT usuario FROM compras";
+        //     foreach ($conx->query($sql) as $fila) {
+        //         $nombre[$count] = $fila[0];
+        //         $count++;
+        //     }
+        //     for ($i = 0; $i < count($nombre); $i++) {
+        //         $sql = "SELECT * FROM compras WHERE usuario = '" . $nombre[$i] . "'";
+        //         foreach ($conx->query($sql) as $fila) {
+        //             $funko[$nombre[$i]][$countx] = $fila[2];
+        //             $cantidad[$nombre[$i]][$countx] = $fila[3];
+        //             $countx++;
+        //         }
+        //     }
+        //     echo "<table>";
+        //     for ($i = 0; $i < count($nombre); $i++) {
+        //         echo "<tr>";
+        //         echo "<th>Cliente: " . $nombre[$i] . "</th>";
+        //         echo "</tr>";
+        //         echo "<tr>";
+        //         echo "<th>Funkos</th>";
+        //         echo "<th>Cantidades</th>";
+        //         echo "</tr>";
+        //         for ($j = 0; $j < $countx; $j++) {
+        //             if ($funko[$nombre[$i]][$j] != '') {
+        //                 echo "<tr>";
+        //                 echo  "<td>" . $funko[$nombre[$i]][$j] . "</td>";
+        //                 echo  "<td>" . $cantidad[$nombre[$i]][$j] . "</td>";
+        //                 echo "</tr>";
+        //                 $total += 15.99 * $cantidad[$nombre[$i]][$j];
+        //             }
+        //         }
+        //         $total_abs += $total;
+        //         echo "<tr>";
+        //         echo  "<td>Total:</td>";
+        //         echo  "<td>" . $total . "</td>";
+        //         echo "</tr>";
+        //     }
+        //     echo "</table>";
+        //     echo "<br>";
+        //     echo "<br>";
+        //     echo "<br>";
+        //     echo  "Total: ";
+        //     echo  "<strong>" . $total_abs . "</strong>";
+        //     //echo $sql;
+        // }
         function consulta($conx, $url)
         {
             $total = 0;
