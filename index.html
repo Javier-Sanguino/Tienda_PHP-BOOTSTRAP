@@ -99,8 +99,12 @@
 
 
         </section>
-        <a href="./login-google/index.php">login</a>
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous"
+            src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v11.0" nonce="nwN6IdVo"></script>
         <footer class="row bg-danger" style="height: 40vh;">
+            <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with"
+                data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
             <div class="col-sm-12 d-flex justify-content-center align-items-center">
                 <p style="margin-bottom: 0;">Made with <i class="fas fa-heart"></i> by JS Creations</p>
             </div>

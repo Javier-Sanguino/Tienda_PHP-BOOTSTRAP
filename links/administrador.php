@@ -62,9 +62,9 @@ include("../php/admin.php");
                 $sql = "SELECT * FROM administradores where usuario = '" . $_POST['user'] . "'";
 
                 foreach ($conx->query($sql) as $fila) {
-                    $usuario = $fila[1];
-                    $contrasena = $fila[2];
-                    $_SESSION['permiso'] = $fila[3];
+                    $usuario = $fila[0];
+                    $contrasena = $fila[1];
+                    $_SESSION['permiso'] = $fila[2];
                 }
 
                 if ($_POST['user'] == $usuario && $_POST['passw'] == $contrasena) {
